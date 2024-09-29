@@ -52,12 +52,14 @@ h2 {
 }
 
 .input-box .icon {
-  position: relative;
+  position: absolute;
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 18px;
   color: #007bff;
+  pointer-events: none; /* Prevent the icon from blocking clicks */
+
 }
 
 button {

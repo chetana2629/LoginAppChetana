@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,51 +33,54 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="wrapper">
-          <h2>Login</h2>
+    <div className="container">
+      <div className="wrapper">
+        <h2>Login</h2>
 
-          <div className="input-box">
-            {/* User icon */}
-            <i className="bx bxs-user"></i>
-            <input
-              name="name"
-              value={input.name}
-              onChange={handleChange}
-              type="text"
-              placeholder="Enter your username"
-              required
-            />
-            <br /><br />
-
-            {/* Lock icon */}
-            <i className="bx bxs-lock-alt"></i>
-            <input
-              name="password"
-              value={input.password}
-              onChange={handleChange}
-              type="password" // Use password type for security
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" /> Remember me
-            </label>
-            <a href="#">Forget password?</a>
-          </div>
-
-          <div className="registration-link">
-            <p>Don't have an account? <Link to="/register">Register</Link></p>
-          </div>
-
-          <button onClick={handleLogin}>Submit</button>
+        <div className="input-box">
+          {/* User icon */}
+          <span className="icon">
+            <FontAwesomeIcon icon={faUser} />
+          </span>
+          <input
+            name="name"
+            value={input.name}
+            onChange={handleChange}
+            type="text"
+            placeholder="Enter your username"
+            required
+          />
         </div>
+
+        <div className="input-box">
+          {/* Lock icon */}
+          <span className="icon">
+            <FontAwesomeIcon icon={faLock} />
+          </span>
+          <input
+            name="password"
+            value={input.password}
+            onChange={handleChange}
+            type="password" // Use password type for security
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <div className="remember-forgot">
+          <label>
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#">Forget password?</a>
+        </div>
+
+        <div className="registration-link">
+          <p>Don't have an account? <Link to="/register">Register</Link></p>
+        </div>
+
+        <button onClick={handleLogin}>Submit</button>
       </div>
-    </>
+    </div>
   );
 };
 
